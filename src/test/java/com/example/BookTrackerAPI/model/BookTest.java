@@ -24,4 +24,23 @@ public class BookTest {
 		assertTrue("Shavarsh".equals(author));
 		assertEquals(999,length);
 	}
+	
+	@Test
+	public void testBookModelSetterMethods() {
+		//setup
+		//"Title of the book",1997,,999
+		Book cut = new Book();
+		
+		//execute
+		cut.setAuthor("Shavarsh");
+		cut.setLength(999);
+		cut.setTitle("Title of the book");
+		cut.setYearOfPublication(1997);
+		
+		//assert
+		assertTrue("Title of the book".equals(cut.getTitle()));
+		assertEquals(1997,cut.getYearOfPublication());
+		assertTrue("Shavarsh".equals(cut.getAuthor()));
+		assertEquals(999,cut.getLength());
+	}
 }
