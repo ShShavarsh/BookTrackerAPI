@@ -10,7 +10,7 @@ public class BookTest {
 	@Test
 	public void testBookModelGetterMethods() {
 		//setup
-		Book cut = new Book("Title of the book",1997,"Shavarsh",999);
+		Book cut = new Book("Title of the book",1997,"Shavarsh",999,1L);
 		
 		//execute
 		String title = cut.getTitle();
@@ -28,7 +28,6 @@ public class BookTest {
 	@Test
 	public void testBookModelSetterMethods() {
 		//setup
-		//"Title of the book",1997,,999
 		Book cut = new Book();
 		
 		//execute
