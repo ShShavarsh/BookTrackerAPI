@@ -41,8 +41,25 @@ public class BookServiceImplTest {
 		//assert
 		assertTrue(savedBook.getId() == book.getId());
 		
-		//clean up
+		//tear down
 		cut.deleteBook(book.getId());
 	}
+	
+	@Test
+	public void afterDeletingBookFromBooksListItShouldBeEmpty() {
+		//setup
+		Book book = new Book("Title of the book",1997,"Shavarsh",999,10L);
+		Book savedBook = cut.insert(book);
+		
+		//execute
+		cut.deleteBook(savedBook.getId());
+		
+		//assert
+		assertTrue(cut.getBooks().isEmpty());
+		
+		//tear down
+	}
+	
+	
 
 }
