@@ -35,7 +35,15 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public void updateBook(Long id, Book book) {
-    	
+    	Book bookFromDb = bookRepository.findById(id).get();
+        System.out.println(bookFromDb.toString());
+        
+        bookFromDb.setAuthor(book.getAuthor());
+        bookFromDb.setLength(book.getLength());
+        bookFromDb.setTitle(book.getTitle());
+        bookFromDb.setYearOfPublication(book.getYearOfPublication());
+
+        bookRepository.save(bookFromDb);
     }
 
     @Override
