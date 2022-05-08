@@ -30,4 +30,19 @@ public class BookServiceImplTest {
 		assertTrue(books.isEmpty());
 	}
 	
+	@Test
+	public void afterAddingBookToBooksListItShouldReturnTheSameBook() {
+		//setup
+		Book book = new Book("Title of the book",1997,"Shavarsh",999,1L);
+		
+		//execute
+		Book savedBook = cut.insert(book);
+		
+		//assert
+		assertTrue(savedBook.getId() == book.getId());
+		
+		//clean up
+		cut.deleteBook(book.getId());
+	}
+
 }
