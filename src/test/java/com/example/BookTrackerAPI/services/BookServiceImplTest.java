@@ -80,6 +80,25 @@ public class BookServiceImplTest {
 		cut.deleteBook(savedBook.getId());
 	}
 	
+	@Test
+	public void afterInsertingBookIntoBooksListItShouldBeAccessibleByID() {
+		//setup
+		Book initialBook = new Book("Title of the book",1997,"Shavarsh",999,10L);
+		Book savedBook = cut.insert(initialBook);
+		
+		//execute
+		Book returnedBookByID =  cut.getBookById(savedBook.getId());
+		
+		//assert
+		assertTrue(cut.getBooks().get(0).getTitle().equals(returnedBookByID.getTitle()));
+		assertTrue(cut.getBooks().get(0).getAuthor().equals(returnedBookByID.getAuthor()));
+		assertTrue(cut.getBooks().get(0).getLength() == returnedBookByID.getLength());
+		assertTrue(cut.getBooks().get(0).getYearOfPublication() == returnedBookByID.getYearOfPublication());
+
+		//tear down
+		cut.deleteBook(savedBook.getId());
+	}
+	
 	
 	
 
