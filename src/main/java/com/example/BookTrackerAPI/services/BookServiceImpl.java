@@ -30,7 +30,7 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public Book insert(Book book) {
-    	 return null;
+    	return bookRepository.save(book);
     }
 
     @Override
@@ -40,6 +40,6 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public void deleteBook(Long bookId) {
-    	
+    	bookRepository.deleteById(bookId);
     }
 }
