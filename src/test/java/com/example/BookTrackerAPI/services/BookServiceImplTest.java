@@ -60,6 +60,27 @@ public class BookServiceImplTest {
 		//tear down
 	}
 	
+	@Test
+	public void afterUpdatingBookFromBooksListItShouldBeUpdated() {
+		//setup
+		Book initialBook = new Book("Title of the book",1997,"Shavarsh",999,10L);
+		Book savedBook = cut.insert(initialBook);
+		
+		//execute
+		Book updatedBook = new Book("Title of the book Updated",1998,"Shavarsh Shahoyan",1000,10L);
+		cut.updateBook(savedBook.getId(), updatedBook); 
+		
+		//assert
+		assertTrue(cut.getBooks().get(0).getTitle().equals(updatedBook.getTitle()));
+		assertTrue(cut.getBooks().get(0).getAuthor().equals(updatedBook.getAuthor()));
+		assertTrue(cut.getBooks().get(0).getLength() == updatedBook.getLength());
+		assertTrue(cut.getBooks().get(0).getYearOfPublication() == updatedBook.getYearOfPublication());
+
+		//tear down
+		cut.deleteBook(savedBook.getId());
+	}
+	
+	
 	
 
 }
