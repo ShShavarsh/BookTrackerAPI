@@ -18,7 +18,9 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public List<Book> getBooks() {
-        return null;
+    	List<Book> books = new ArrayList<>();
+        bookRepository.findAll().forEach(books::add);
+        return books;
     }
 
     @Override
