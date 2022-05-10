@@ -74,7 +74,7 @@ public class BookControllerTest {
 	// Book” button, the application will allow me to update any of the information
 	// about the book
 	@Test
-	public void updateEmployeeAPI() throws Exception {
+	public void updateBookAPI() throws Exception {
 		mockMvc.perform(MockMvcRequestBuilders.put("/api/v1/book/{id}", 1)
 				.content(asJsonString(Book.builder().author("Shavarsh").length(199).yearOfPublication(1999)
 						.title("The last chance").build()))
